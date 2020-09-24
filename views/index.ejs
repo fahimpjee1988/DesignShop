@@ -8,21 +8,9 @@
   </head>
   <body>
     <nav>
-      <div>
-        <h3>The Design Shop</h3>
-      </div>
+      <div><%- include('partials/header'); %></div>
     </nav>
-    <div>
-      <section id="gallery">
-        <div>
-          <% gallery.forEach(element => { %>
-          <img src="<%= element.Product_pictureLink %> " alt="" />
-          <h3><%= element.product_name %></h3>
-          <h4><%= element.Price %>$</h4>
-          <a href="<%= element.Link_shop %> ">BUY</a>
-          <% }) %>
-        </div>
-      </section>
-    </div>
+
+    <div><%- include('partials/gallery'); %><</div>
   </body>
 </html>

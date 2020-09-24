@@ -1,0 +1,13 @@
+<section id="gallery">
+  <div>
+    <% gallery.forEach(element => { %>
+    <a href="/single/<%= element._id %>"
+      ><img src="<%= element.Product_pictureLink %> " alt=""
+    /></a>
+
+    <h3><%= element.product_name %></h3>
+    <h4><%= element.Price %>$</h4>
+    <a href="<%= element.Link_shop %> ">BUY</a>
+    <% }) %>
+  </div>
+</section>

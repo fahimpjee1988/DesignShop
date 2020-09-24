@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div><%- include('partials/header'); %>.</div>
+    <div id="single">
+      <div class="flex">
+        <a id="toggle" href="">Edit</a>
+        <a href="/single/<%= gallery._id %>/delete">Delete</a>
+      </div>
+      <div id="show">
+        <img src="<%= gallery.Product_pictureLink %> " alt="" />
+        <h3><%= gallery.product_name %></h3>
+        <h3><%= gallery.Price %>$</h3>
+        <h3><a href="<%= gallery.Link_shop %>">Buy Now</a></h3>
+      </div>
+      <div id="edit">
+        <form action="/single/<%= gallery._id %>/edit" method="POST">
+          <input
+            type="text"
+            name="product_name"
+            id=""
+            value="<%= gallery.product_name %>"
+          />
+          <input type="text" name="Price" id="" value="<%= gallery.Price %>" />
+          <input
+            type="text"
+            name="Product_pictureLink"
+            id=""
+            value="<%= gallery.Product_pictureLink %>"
+          />
+          <input type="submit" value="Edit CONTACT" />
+        </form>
+      </div>
+    </div>
+    <script>
+      const edit = document.getElementById("edit");
+      const show = document.getElementById("show");
+      const toggleBtn = document.getElementById("toggle");
+
+      edit.classList.add("hide");
+      toggleBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        edit.classList.toggle("hide");
+        show.classList.toggle("hide");
+      });
+    </script>
+  </body>
+</html>

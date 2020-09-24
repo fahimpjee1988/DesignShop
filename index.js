@@ -40,6 +40,13 @@ app.get("/add", (req, res) => {
     })
     .catch((err) => console.log(err));
 });
+app.get("/less", (req, res) => {
+  GalleryItem.aggregate([{ $match: { Price: { $lte: 30 } } }])
+    .then((result) => {
+      res.render("less", { gallery: result });
+    })
+    .catch((err) => console.log(err));
+});
 
 app.post("/add", (req, res) => {
   const newArticle = new GalleryItem({
@@ -61,6 +68,38 @@ app.get("/less", (req, res) => {
   GalleryItem.aggregate([{ Price: { $lte: 120 } }, { $sample: { size: 6 } }])
     .then((result) => {
       res.render("less", { gallery: result });
+    })
+    .catch((err) => console.log(err));
+});
+
+app.get("/single/:_id", (req, res) => {
+  console.log(req.params._id);
+
+  GalleryItem.findById(req.params._id)
+    .then((result) => {
+      res.render("single", { gallery: result });
+    })
+    .catch((err) => console.log(err));
+});
+
+app.get("/single/:_id/delete", (req, res) => {
+  GalleryItem.findByIdAndDelete(req.params._id)
+    .then((result) => {
+      res.redirect("/");
+    })
+    .catch((err) => console.log(err));
+});
+
+app.post("/single/:_id/edit", (req, res) => {
+  const updatedGalleryItem = {
+    product_name: req.body.product_name,
+    Link_shop: req.body.Link_shop,
+    Price: req.body.Price,
+    Product_pictureLink: req.body.Product_pictureLink,
+  };
+  GalleryItem.findByIdAndUpdate(req.params._id, updatedGalleryItem)
+    .then((result) => {
+      res.redirect(`/single/${req.params._id}`);
     })
     .catch((err) => console.log(err));
 });

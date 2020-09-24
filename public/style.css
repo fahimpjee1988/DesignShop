@@ -26,3 +26,46 @@
   background: black;
   color: white;
 }
+
+#nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+#nav ul {
+  list-style: none;
+  display: flex;
+  width: 500px;
+}
+#nav ul li {
+  text-decoration: none;
+  padding-left: 3%;
+}
+#single {
+  max-width: 300px;
+  margin: 0 auto;
+}
+img {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+.flex a {
+  color: #fff;
+  padding: 10px 20px;
+  background: #e66465;
+  text-decoration: none;
+}
+.flex a:hover {
+  color: #fff;
+  padding: 10px 20px;
+  background: #e66420;
+  text-decoration: underline;
+}
+.hide {
+  display: none;
+}

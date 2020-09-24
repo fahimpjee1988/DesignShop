@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
+    <div><%- include('partials/header'); %>.</div>
+
     <h2>Add A <span>NEW P </span> RODUCT</h2>
 
     <section id="firstsectionart">
@@ -31,14 +33,7 @@
       </form>
     </section>
     <section id="gallery">
-      <div>
-        <% gallery.forEach(element => { %>
-        <img src="<%= element.Product_pictureLink %> " alt="" />
-        <h3><%= element.product_name %></h3>
-        <h4><%= element.Price %></h4>
-        <a href="<%= element.Link_shop %> ">BUY</a>
-        <% }) %>
-      </div>
+      <div><%- include('partials/gallery'); %><</div>
     </section>
   </body>
 </html>
