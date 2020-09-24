@@ -1,0 +1,28 @@
+#gallery img {
+  width: 400px;
+  height: 30vh;
+}
+
+#gallery div {
+  display: grid;
+  grid-template-columns: repeat(4, repeat);
+}
+
+#firstsectionart input {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-indent: 20px;
+  color: rgba(51, 51, 51, 0.5);
+  border-radius: 5px;
+  width: 700px;
+  height: 25px;
+}
+#firstsectionart input:last-of-type {
+  background: black;
+  color: white;
+}

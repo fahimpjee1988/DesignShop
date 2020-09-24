@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <h2>Add A <span>NEW P </span> RODUCT</h2>
+
+    <section id="firstsectionart">
+      <form action="/add" method="POST">
+        <input type="text" name="Link_shop" id="" placeholder="Product Name" />
+        <input
+          type="text"
+          name="Product_pictureLink"
+          id=""
+          placeholder="Url Picture"
+        />
+        <input type="text" name="product_name" id="" placeholder="Company" />
+        <input type="text" name="Price" id="" placeholder="Price" />
+        <!-- <input
+          type="text"
+          name="write_article"
+          id=""
+          placeholder="Write your Article Here"
+        /> -->
+
+        <input type="submit" value="Send" />
+      </form>
+    </section>
+    <section id="gallery">
+      <div>
+        <% gallery.forEach(element => { %>
+        <img src="<%= element.Product_pictureLink %> " alt="" />
+        <h3><%= element.product_name %></h3>
+        <h4><%= element.Price %></h4>
+        <a href="<%= element.Link_shop %> ">BUY</a>
+        <% }) %>
+      </div>
+    </section>
+  </body>
+</html>
